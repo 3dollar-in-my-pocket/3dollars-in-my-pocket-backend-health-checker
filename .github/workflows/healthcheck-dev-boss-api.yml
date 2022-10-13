@@ -1,4 +1,4 @@
-name: "[운영] 헬스체크 - User API"
+name: "[개발] 헬스체크 - Boss API"
 
 on:
   schedule:
@@ -9,10 +9,10 @@ jobs:
   healthcheck:
     runs-on: ubuntu-latest
     steps:
-      - name: 유저 API Health Check
+      - name: 사장님 API Health Check
         uses: jtalk/url-health-check-action@v2
         with:
-          url: ${{ secrets.BASE_URI_PROD }}/api/ping
+          url: ${{ secrets.BASE_URI_DEV }}/boss/ping
           max-attempts: 3
           retry-delay: 1s
 
@@ -26,8 +26,8 @@ jobs:
             {
               attachments: [{
                 color: 'danger',
-                text: `${process.env.AS_WORKFLOW}\n유저 API 서버 Health Check가 실패하였습니다`
+                text: `${process.env.AS_WORKFLOW}\n사장님 API 서버 Health Check가 실패하였습니다`
               }]
             }
         env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL_PROD }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}

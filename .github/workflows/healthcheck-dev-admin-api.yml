@@ -1,4 +1,4 @@
-name: "[운영] 헬스체크 - Admin API"
+name: "[개발] 헬스체크 - Admin API"
 
 on:
   schedule:
@@ -12,7 +12,7 @@ jobs:
       - name: 관리자 API Health Check
         uses: jtalk/url-health-check-action@v2
         with:
-          url: ${{ secrets.BASE_URI_PROD }}/test/ping
+          url: ${{ secrets.BASE_URI_DEV }}/admin/ping
           max-attempts: 3
           retry-delay: 1s
 
@@ -26,7 +26,7 @@ jobs:
             {
               attachments: [{
                 color: 'danger',
-                text: `${process.env.AS_WORKFLOW}\n테스트API 서버 Health Check가 실패하였습니다`
+                text: `${process.env.AS_WORKFLOW}\n관리자 API 서버 Health Check가 실패하였습니다`
               }]
             }
         env:
