@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 사장님 API Health Check
-        uses: jtalk/url-health-check-action@v2
+        uses: jtalk/url-health-check-action@v3
         with:
           url: ${{ secrets.BASE_URI_DEV }}/boss/ping
           max-attempts: 3

@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 푸시 API Health Check
-        uses: jtalk/url-health-check-action@v2
+        uses: jtalk/url-health-check-action@v3
         with:
           url: ${{ secrets.BASE_URI_DEV }}/push/ping
           max-attempts: 3
