@@ -14,5 +14,5 @@ jobs:
         with:
           url: ${{ secrets.BASE_URI_DEV }}/batch/job/execute/dailyStaticsJob
           method: POST
-          bearerToken: ${{ secrets.BATCH_TOKEN_DEV }}}
+          bearerToken: ${{ secrets.BATCH_TOKEN_DEV }}
           contentType: application/json
