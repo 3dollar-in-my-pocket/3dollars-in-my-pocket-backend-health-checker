@@ -6,13 +6,13 @@ on:
   workflow_dispatch:
 
 jobs:
-  healthcheck:
+  trigger:
     runs-on: ubuntu-latest
     steps:
       - name: 사장님 서비스 일일 통계 배치 트리거
         uses: fjogeleit/http-request-action@v1
         with:
-          url: ${{ secrets.BASE_URI_DEV }}/job/execute/bossStatisticsJob
+          url: ${{ secrets.BASE_URI_DEV }}/batch/job/execute/bossStatisticsJob
           method: POST
           bearerToken: ${{ secrets.BATCH_TOKEN_DEV }}}
           contentType: application/json

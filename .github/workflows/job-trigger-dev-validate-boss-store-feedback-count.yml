@@ -6,13 +6,13 @@ on:
   workflow_dispatch:
 
 jobs:
-  healthcheck:
+  trigger:
     runs-on: ubuntu-latest
     steps:
       - name: 사장님 가게 피드백 카운트 갯수 검증 배치 트리거
         uses: fjogeleit/http-request-action@v1
         with:
-          url: ${{ secrets.BASE_URI_DEV }}/job/execute/validateBossStoreFeedbackCountJob
+          url: ${{ secrets.BASE_URI_DEV }}/batch/job/execute/validateBossStoreFeedbackCountJob
           method: POST
           bearerToken: ${{ secrets.BATCH_TOKEN_DEV }}}
           contentType: application/json

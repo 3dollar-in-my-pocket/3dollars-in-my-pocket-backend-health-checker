@@ -6,13 +6,13 @@ on:
   workflow_dispatch:
 
 jobs:
-  healthcheck:
+  trigger:
     runs-on: ubuntu-latest
     steps:
       - name: 유저 가게 평균 리뷰 점수 배치 트리거
         uses: fjogeleit/http-request-action@v1
         with:
-          url: ${{ secrets.BASE_URI_DEV }}/job/execute/validateUserStoreAverageRatingJob
+          url: ${{ secrets.BASE_URI_DEV }}/batch/job/execute/validateUserStoreAverageRatingJob
           method: POST
           bearerToken: ${{ secrets.BATCH_TOKEN_DEV }}}
           contentType: application/json
