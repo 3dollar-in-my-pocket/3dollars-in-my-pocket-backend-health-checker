@@ -2,7 +2,7 @@ name: "[운영] 잡 트리거 - 즐겨찾기 가게 카운트 갯수 검증 배�
 
 on:
   schedule:
-    - cron: "0 11 */3 * *"
+    - cron: "20 11 */3 * *"
   workflow_dispatch:
 
 jobs:

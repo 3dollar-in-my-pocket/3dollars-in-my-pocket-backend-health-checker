@@ -2,7 +2,7 @@ name: "[개발] 잡 트리거 - 활동 기반으로 유저 가게를 삭제하�
 
 on:
   schedule:
-    - cron: "0 11 */3 * *"
+    - cron: "30 11 */3 * *"
   workflow_dispatch:
 
 jobs:
