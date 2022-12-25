@@ -1,0 +1,16 @@
+name: "[운영] 잡 트리거 - 활동 기반으로 유저 가게를 삭제하는 배치"
+
+on:
+  workflow_dispatch:
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: trigger
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: ${{ secrets.BASE_URI_PROD }}/batch/job/execute/userStoreAutoCleanerJob
+          method: POST
+          bearerToken: ${{ secrets.BATCH_TOKEN_PROD }}
+          contentType: application/json

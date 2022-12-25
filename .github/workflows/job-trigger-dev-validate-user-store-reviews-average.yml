@@ -9,7 +9,7 @@ jobs:
   trigger:
     runs-on: ubuntu-latest
     steps:
-      - name: 유저 가게 평균 리뷰 점수 배치 트리거
+      - name: trigger
         uses: fjogeleit/http-request-action@v1
         with:
           url: ${{ secrets.BASE_URI_DEV }}/batch/job/execute/validateUserStoreAverageRatingJob

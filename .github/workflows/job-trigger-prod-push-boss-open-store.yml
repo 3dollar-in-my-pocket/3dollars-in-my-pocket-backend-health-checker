@@ -9,7 +9,7 @@ jobs:
   trigger:
     runs-on: ubuntu-latest
     steps:
-      - name: 사장님 서비스 장기 영업 가게 푸시 발송 트리거
+      - name: trigger
         uses: fjogeleit/http-request-action@v1
         with:
           url: ${{ secrets.BASE_URI_PROD }}/batch/job/execute/bossOpenStorePushJob
