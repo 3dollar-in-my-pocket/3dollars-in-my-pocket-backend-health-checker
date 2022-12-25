@@ -1,0 +1,18 @@
+name: "[개발] 잡 트리거 - 사장님 서비스 장기 영업 가게 푸시 발송"
+
+on:
+  schedule:
+    - cron: "0 0,12 * * *"
+  workflow_dispatch:
+
+jobs:
+  healthcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 사장님 서비스 장기 영업 가게 푸시 발송 트리거
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: ${{ secrets.BASE_URI_DEV }}/job/execute/bossOpenStorePushJob
+          method: POST
+          bearerToken: ${{ secrets.BATCH_TOKEN_DEV }}}
+          contentType: application/json
