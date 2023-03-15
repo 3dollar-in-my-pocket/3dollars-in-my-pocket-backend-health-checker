@@ -1,8 +1,8 @@
 name: "[개발] 트리거 - Reservation Job"
 
 on:
-  schedule:
-    - cron: "0 * * * *"
+#  schedule:
+#    - cron: "0 * * * *"
   workflow_dispatch:
 
 jobs:
