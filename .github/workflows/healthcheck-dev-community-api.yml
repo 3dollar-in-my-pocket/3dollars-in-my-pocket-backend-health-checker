@@ -1,0 +1,33 @@
+name: "[개발] 헬스체크 - Community API"
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+jobs:
+  healthcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 커뮤니티 API Health Check
+        uses: jtalk/url-health-check-action@v4
+        with:
+          url: ${{ secrets.BASE_COMMUNITY_URI_DEV }}/community/health/readiness
+          max-attempts: 3
+          retry-delay: 1s
+
+      - name: action-slack
+        if: failure()
+        uses: 8398a7/action-slack@v3
+        with:
+          status: custom
+          fields: workflow
+          custom_payload: |
+            {
+              attachments: [{
+                color: 'danger',
+                text: `${process.env.AS_WORKFLOW}\n커뮤니티 API 서버 Health Check가 실패하였습니다`
+              }]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL_DEV }}
